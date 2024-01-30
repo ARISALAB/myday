@@ -1,0 +1,340 @@
+/* Κώδικας για ολόκληρη τη σελίδα */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Κώδικας για την κεντρική ενότητα */
+.container,
+.container2,
+.container3,
+.data-tables {
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.container2 {
+    background-image: url('big.jpg');
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    text-align: center;
+    font-size: 28px;
+}
+.container3 {
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+.data-tables {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Κώδικας για τους πίνακες εισοδήματος, εξόδων και σύνοψης */
+.income-table,
+.expense-table,
+.summary-table {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Αποδοχή ευέλικτου χώρου στη σειρά flex */
+}
+
+/* Κώδικας για τον πίνακα saved-data-table */
+.saved-data-table {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Αποδοχή ευέλικτου χώρου στη σειρά flex */
+}
+
+/* Κώδικας για τα υπόλοιπα στοιχεία */
+h1 {
+    color: #333;
+}
+
+label {
+    margin-right: 10px;
+}
+
+button {
+    margin-right: 10px;
+    padding: 7px 9px;
+    color: white;
+    background-color: lightslategray;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Κώδικας για τους πίνακες */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+thead {
+    background-image: url('big.jpg');
+    color: #fff;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    text-align: center;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+
+    .saved-data-table {
+        display: flex;
+        flex-direction: column;
+        overflow-x: auto; /* Επιτρέπει την οριζόντια κύλιση εάν ο πίνακας υπερβαίνει το πλάτος της οθόνης */
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    @media (max-width: 767px) { /* Όταν το πλάτος της οθόνης είναι 767 pixels ή λιγότερο, κάντε τον πίνακα κάθετο */
+        .saved-data-table table, .saved-data-table thead, .saved-data-table tbody, .saved-data-table th, .saved-data-table td, .saved-data-table tr {
+            display: block;
+        }
+
+        .saved-data-table thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        .saved-data-table tbody tr {
+            border: 1px solid #dddddd;
+            margin-bottom: 10px;
+        }
+
+        .saved-data-table td {
+            border: none;
+            border-bottom: 1px solid #dddddd;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        .saved-data-table td:before {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        .saved-data-table td:nth-of-type(1):before { content: "Ημερομηνία: "; }
+        .saved-data-table td:nth-of-type(2):before { content: "Έσοδα (Μετρητά): "; }
+        .saved-data-table td:nth-of-type(3):before { content: "Έσοδα (Κάρτες): "; }
+        .saved-data-table td:nth-of-type(4):before { content: "Σύνολο Εσόδων: "; }
+        .saved-data-table td:nth-of-type(5):before { content: "Έξοδα (Μετρητά): "; }
+        .saved-data-table td:nth-of-type(6):before { content: "Έξοδα (Κάρτες): "; }
+        .saved-data-table td:nth-of-type(7):before { content: "Σύνολο Εξόδων: "; }
+        .saved-data-table td:nth-of-type(8):before { content: "Συνολικά Μετρητά: "; }
+        .saved-data-table td:nth-of-type(9):before { content: "Συνολικές Κάρτες: "; }
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Align to the right */
+    }
+
+    .container2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .container3 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Align to the right */
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        order: -1; /* Move to the leftmost position */
+    }
+
+    .container3 button {
+        margin: 5px;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .container3 {
+            display: none;
+            position: absolute;
+            top: 60px; /* Adjust as needed */
+            right: 0;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            flex-direction: column;
+            text-align: right;
+            align-items: right;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .container3.show {
+            display: flex;
+        }
+    }
+   
+  
+/* Κώδικας για τον πίνακα weeklyReportTable */
+#weeklyReportTable {
+    width: 100%;
+    overflow: auto;
+    display: block;
+}
+
+/* Κράτηση της πρώτης στήλης σταθερή */
+#weeklyReportTable th:first-child,
+#weeklyReportTable td:first-child {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+}
+
+/* Ρυθμίσεις για τη μπάρα κύλισης στον πίνακα */
+#weeklyReportTable thead {
+    white-space: nowrap;
+}
+
+/* Καταργήστε την εικόνα φόντου από την ημερομηνία στο thead, εάν δεν είναι απαραίτητη */
+#weeklyReportTable thead th:first-child {
+    background-image: none;
+}
+
+.additional-message-row {
+    border: 1px solid #ccc; /* Χρώμα περιγράμματος ορθογωνίου */
+    background-color: #f0f0f0; /* Χρώμα φόντου ορθογωνίου */
+    padding: 10px; /* Απόσταση εσωτερικού περιεχομένου */
+    margin-bottom: 10px; /* Απόσταση κάτω από το ορθογώνιο */
+}
+
+.average-row {
+    border: 1px solid #ccc; /* Χρώμα περιγράμματος ορθογωνίου */
+    background-color: #f0f0f0; /* Χρώμα φόντου ορθογωνίου */
+    padding: 10px; /* Απόσταση εσωτερικού περιεχομένου */
+    margin-bottom: 10px; /* Απόσταση κάτω από το ορθογώνιο */
+}
+.separator {
+    height: 20px; /* Ύψος του κενού */
+    width: 100%; /* Πλήρης πλάτος */
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    padding: 10px;
+    margin-right: 10px;
+    padding: 7px 9px;
+    color: white;
+    background-color: lightslategray;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+}
+
+.dropdown-content button:hover {
+    background-color: #ddd;
+}
+
+
+.dropdown-content label, .dropdown-content select {
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.show {
+    display: block;
+}
+#comparisonResult {
+    margin-top: 20px; /* Προσθέστε αυτήν τη γραμμή για να προσθέσετε κενό στην κορυφή του αποτελέσματος */
+}

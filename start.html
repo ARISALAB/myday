@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Οικονομικός Έλεγχος Εστιατορίου</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container2">Καλώς ήρθατε στην Εφαρμογή Οικονομικού Ελέγχου Εστιατορίου</div>
+        
+        <div class="content-description">
+            <p>
+                Η παρούσα εφαρμογή σας επιτρέπει να καταγράφετε τα οικονομικά δεδομένα του εστιατορίου σας.
+                Καταγράψτε τα έσοδα και τα έξοδα σας καθημερινά, δημιουργήστε αναφορές και συγκρίνετε την επίδοσή σας με το παρελθόν.
+            </p>
+        </div>
+        <div class="image-container">
+            <img src="25.jpg" alt="Εικόνα 2">
+            <img src="24.png" alt="Εικόνα 1">
+            <img src="26.jpg" alt="Εικόνα 3">
+        </div>
+        <p>
+            Χρησιμοποιήστε τα κουμπιά στην πάνω γραμμή για να μεταβείτε στις διάφορες σελίδες αναφορών και συγκρίσεων.
+            Επίσης, μπορείτε να καταγράψετε δεδομένα για συγκεκριμένες ημερομηνίες και να τα αποθηκεύσετε για μελλοντική αναφορά.
+        </p>
+    </div>
+
+    <div class="container">
+        <h1>Πώς Λειτουργεί</h1>
+        <p>
+            Καταγράψτε τα έσοδα του εστιατορίου σας, χωρίζοντάς τα σε μετρητά και κάρτες.
+            Καταγράψτε επίσης τα έξοδα, και η εφαρμογή θα υπολογίσει αυτόματα τα συνολικά έσοδα, έξοδα και τα καθαρά κέρδη.
+        </p>
+        <div class="image-container">
+            <img src="27.png" alt="Εικόνα 2">
+            <img src="28.png" alt="Εικόνα 1">
+            <img src="29.png" alt="Εικόνα 3">
+        </div>
+        <p>
+            Χρησιμοποιήστε τα κουμπιά "Σύγκριση" για να συγκρίνετε τα δεδομένα σας μεταξύ διαφορετικών χρονικών περιόδων.
+            Εξερευνήστε τις αποθηκευμένες αναφορές για να παρακολουθείτε την εξέλιξη των οικονομικών σας.
+        </p>
+    </div>
+
+    <div class="login-container">
+        <h2>Σύνδεση ή Εγγραφή</h2>
+        <button onclick="openRegistrationModal()">Εγγραφή</button>
+        <button onclick="openApp()">Σύνδεση</button>
+    </div>
+
+    <!-- Modal για Εγγραφή -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegistrationModal()">&times;</span>
+            <h2>Εγγραφή</h2>
+            <form id="registrationForm" onsubmit="submitRegistrationForm(); return false;">
+                <label for="name">Όνομα:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="surname">Επώνυμο:</label>
+                <input type="text" id="surname" name="surname" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="phone">Τηλέφωνο:</label>
+                <input type="tel" id="phone" name="phone" required>
+        
+                <label for="username">Όνομα Χρήστη:</label>
+                <input type="text" id="username" name="username" required>
+        
+                <label for="password">Κωδικός:</label>
+                <input type="password" id="password" name="password" required>
+        
+                <label for="confirmPassword">Επαλήθευση Κωδικού:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+        
+                <button type="submit">Εγγραφή</button>
+                <button id="googleSignInBtn" onclick="signInWithGoogle()">Εγγραφή με Google</button>
+
+            </form>
+        </div>
+        
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="script.js"></script>
+
+
+    <script>
+ function openApp() {
+    // Παραδείγματα κώδικα που θα μπορούσατε να χρησιμοποιήσετε
+    var successfulLogin = true;
+
+    if (successfulLogin) {
+        window.location.href = "index.html";
+    } else {
+        alert("Σφάλμα σύνδεσης. Παρακαλούμε ελέγξτε τα στοιχεία σας και προσπαθήστε ξανά.");
+    }
+}
+
+
+        function openRegistrationModal() {
+            var modal = document.getElementById("registrationModal");
+            modal.style.display = "block";
+        }
+
+        function closeRegistrationModal() {
+            var modal = document.getElementById("registrationModal");
+            modal.style.display = "none";
+        }
+
+        // Κλείσιμο του modal αν ο χρήστης πατήσει έξω από αυτό
+        window.onclick = function(event) {
+            var modal = document.getElementById("registrationModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Συνάρτηση εγγραφής με Google
+function signInWithGoogle() {
+    // Προσαρμόστε τον κώδικα σύνδεσης με το Google Sign-In API
+    // Περισσότερες πληροφορίες εδώ: https://developers.google.com/identity/sign-in/web/sign-in
+    gapi.load('auth2', function() {
+        gapi.auth2.init({
+            client_id: 'ΤΟ_CLIENT_ID_ΣΑΣ',
+        }).then(function(auth2) {
+            auth2.signIn().then(function(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                var userFirstName = profile.getGivenName();
+                var userLastName = profile.getFamilyName();
+                var userEmail = profile.getEmail();
+                
+                // Εδώ μπορείτε να χρησιμοποιήσετε τα στοιχεία του χρήστη όπως χρειάζεται
+                // Στην περίπτωση αυτή, απλώς εμφανίζουμε τα στοιχεία στο console
+                console.log('Όνομα: ' + userFirstName);
+                console.log('Επώνυμο: ' + userLastName);
+                console.log('Email: ' + userEmail);
+                
+                // Κλείνουμε το modal μετά την επιτυχημένη εγγραφή
+                closeRegistrationModal();
+            });
+        });
+    });
+}
+
+    </script>
+
+    <style>
+   /* Υποθέτοντας ότι έχετε ένα στιλ για τον επιλεγμένο container2 */
+/* Υποθέτοντας ότι έχετε ένα στιλ για τον επιλεγμένο container2 */
+.container2 {
+    font-size: 20px; /* Παράδειγμα μεγέθους γραμματοσειράς */
+    /* Επιπλέον στυλ που μπορείτε να προσθέσετε */
+}
+
+.image-container {
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.image-container img {
+    width: 30%; /* Προσαρμογή του μεγέθους των εικόνων */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column; /* Αλλαγή της κατεύθυνσης σε κατακόρυφη όταν μικραίνει η οθόνη */
+        align-items: center; /* Στοίχιση των εικόνων στο κέντρο */
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+}
+
+        .login-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-container button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        /* Modal στυλ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; /* Αυξήστε ή μειώστε το ποσοστό ανάλογα με το επιθυμητό ύψος */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px; /* Ορίζει το μέγιστο πλάτος */
+        }
+.modal-content form {
+    width: 300px;
+}
+
+.modal-content label {
+    margin-bottom: 8px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        #googleSignInBtn {
+            background-color: #4285F4;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+    </style>
+</body>
+</html>
