@@ -149,7 +149,13 @@ function signInWithGoogle() {
         <
     </script>
 
-   
+   <script>
+    window.addEventListener('beforeunload', function () {
+        // Καθαρίζει το ιστορικό της συζήτησης κατά την ανανέωση της σελίδας
+        bp.events.emitEvent('webchat:clear-history');
+    });
+</script>
+
 <style>
    /* Υποθέτοντας ότι έχετε ένα στιλ για τον επιλεγμένο container2 */
 /* Υποθέτοντας ότι έχετε ένα στιλ για τον επιλεγμένο container2 */
