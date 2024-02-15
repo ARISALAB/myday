@@ -146,7 +146,7 @@ function signInWithGoogle() {
         });
     });
 }
-        <
+        
     </script>
 
    <script>
@@ -154,6 +154,35 @@ function signInWithGoogle() {
         // Καθαρίζει το ιστορικό της συζήτησης κατά την ανανέωση της σελίδας
         bp.events.emitEvent('webchat:clear-history');
     });
+
+// Καθορίζουμε ένα μοναδικό κλειδί για τα δεδομένα του chatbot
+const chatbotDataKey = 'chatbotData';
+
+// Αποθηκεύουμε τα δεδομένα συζήτησης στο local storage
+function saveChatbotData(data) {
+    localStorage.setItem(chatbotDataKey, JSON.stringify(data));
+}
+
+// Ανακτούμε τα δεδομένα συζήτησης από το local storage
+function getChatbotData() {
+    const dataString = localStorage.getItem(chatbotDataKey);
+    return dataString ? JSON.parse(dataString) : null;
+}
+
+// Διαγράφουμε τα δεδομένα συζήτησης από το local storage
+function clearChatbotData() {
+    localStorage.removeItem(chatbotDataKey);
+}
+
+// Προσθέτουμε αυτόν τον κώδικα στο τέλος του HTML, πριν το κλείσιμο της ετικέτας </body>
+<script>
+    window.onload = function () {
+        // Καθαρίζουμε μόνο τα δεδομένα του chatbot από το local storage κατά την ανανέωση της σελίδας
+        clearChatbotData();
+    };
+</script>
+
+       
 </script>
 
 <style>
